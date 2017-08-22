@@ -1,0 +1,21 @@
+# Site settings
+title: Taking the Plunge
+header-img: img/home-bg.png
+email: mlhirschberger@gmail.com
+copyright_name: MHirschberger
+description: > # this means to ignore newlines until "baseurl:"
+  Adventures in Software Development
+baseurl: "" # the subpath of your site, e.g. /blog
+twitter_username: 
+github_username:  MHirschberger
+learn_profile: MHirschberger
+email_username: mlhirschberger@gmail.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-paginate, jekyll-feed]
