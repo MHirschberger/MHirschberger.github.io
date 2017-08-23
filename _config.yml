@@ -4,7 +4,7 @@ header-img: img/home-bg.png
 email: mlhirschberger@gmail.com
 copyright_name: MHirschberger
 description: > # this means to ignore newlines until "baseurl:"
-  Adventures in Software Development
+  Personal Adventures in Software Development
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  MHirschberger
