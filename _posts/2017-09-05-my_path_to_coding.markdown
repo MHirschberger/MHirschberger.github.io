@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "My Path to Coding"
-date:   2017-09-05 03:11:13 +0000
+title:      "My Path to Coding"
+date:       2017-09-04 23:11:14 -0400
+permalink:  my_path_to_coding
 ---
 
 
