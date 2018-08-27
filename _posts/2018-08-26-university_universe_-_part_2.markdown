@@ -1,7 +1,7 @@
 ---
 layout: post
-title:      "University Universe - Part 2"
-date:       2018-08-27 00:46:30 +0000
+title:      "University Universe, Revisited"
+date:       2018-08-26 20:46:31 -0400
 permalink:  university_universe_-_part_2
 ---
 
