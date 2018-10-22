@@ -1,7 +1,7 @@
 ---
 layout: post
-title:      "Javascript ES6 Arrow Functions: An In Depth Look"
-date:       2018-10-22 00:49:19 +0000
+title:      "ES6 Arrow Functions: In Depth"
+date:       2018-10-21 20:49:21 -0400
 permalink:  javascript_es6_arrow_functions_an_in_depth_look
 ---
 
