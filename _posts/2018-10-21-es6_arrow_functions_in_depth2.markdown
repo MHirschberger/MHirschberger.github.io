@@ -1,82 +1,23 @@
 ---
 layout: post
-title:      "ES6 Arrow Functions: In Depth2"
-date:       2018-10-22 03:04:26 +0000
+title:      "The Deal With WebSockets"
+date:       2018-10-21 23:04:28 -0400
 permalink:  es6_arrow_functions_in_depth2
 ---
 
-The release of Javascript ECMA2015, or ES6, brought with it the addition of a plethora of new features and syntactical changes to the language. One of the most significant (and one of my favorite) is arrow functions, which offers a shortened, streamlined syntax over the traditional function expression. Below is the same function written in both the traditional and ES6 arrow function syntaxes.
+## Introduction
 
-ES5 function expression:
+WebSockets were created to solve the issue of transferring data between client and server. Traditionally, a full HTTP request was necessary for each and every data transfer. Because a full HTTP request transfers cookies and headers as well, the amount of data being transferred for requests was often more than was necessary, which in turn unnecessarily increase latency time. 
 
-```
-var nums = [2, 4, 6, 8];
+## Setting up the Connection
 
-var timesTen = function(num) {
-    return num * 10;
-}
+WebSockets provide a constant connection between client and server, giving both parties the capability of transferring data at any time. To initiate a WebSocket, the client sends a full HTTP request to the server, with an `Upgrade` header that tells the server to establish a WebSocket. If the server accepts the request, it sends back a response with an `Upgrade` header indicating that it was successful. At this point, the HTTP request is replaced with the WebSocket connection and the WebSocket setup is complete and ready to be used. This setup step is call the WebSocket handshake. 
 
-nums.map(timesTen);  //  [20, 40, 60, 80]
+## Transferring Data with WebSockets
 
-
-```
+WebSockets transfer data through messages, each of which contains at least one frame. These frames contain the data itself, known as the payload. Each frame that is transferred is prefixed with 4-12 bytes of data that identifies the data in that particular frame. This ensures that when the frame reaches the client, it can be reconstructed. The client is notified after all the frames are received and the messages are reconstructed. Using frames for transferring data reduces the non-payload data that is transferred, greatly reducing the amount of latency. 
 
 
-ES6 arrow function:
 
-```
-const nums = [2, 4, 6, 8];
-
-const timesTen = num =>  num * 10;
-
-nums.map(timesTen);  //  [20, 40, 60, 80]
-
-
-```
-
-Looking at the differences between the two function syntaxes, the arrow function lacks the `function` keyword, instead extending a `=>` from the function's parameters to the body. In the ES6 syntax of this specific example, the body consists of a single statement that gets returned. Note that when using arrow functions, if the function's body is enclosed in only parentheses, `()` or is not enclosed in any brackets or parentheses, the statement following the arrow gets returned. If the function's body is enclosed in brackets, `{}`, the `return` keyword is required for the function to return. 
-
-Another important difference of arrow functions is the handling of the `this` keyword. Take the following example:
-
-ES5:
-
-```
-var friend = {
-    name:  'Matt',
-		age: 27,
-		hobbies: ['soccer', 'hiking', 'reading'],
-		displayHobbies: function() {
-		    this.hobbies.forEach(function(hobby) {
-				    console.log(this.name + ' enjoys ' + hobby + '.');
-				    }.bind(this))
-		    }
-}
-
-friend.displayHobbies();  
-// Matt enjoys soccer.
-// Matt enjoys hiking.
-// Matt enjoys reading.
-```
-
-ES6:
-
-```
-const friend = {
-    name:  'Matt',
-		age: 27,
-		hobbies: ['soccer', 'hiking', 'reading'],
-		displayHobbies ()  {
-		    this.hobbies.forEach((hobby) => {
-				    console.log(this.name + ' enjoys ' + hobby + '.');
-				    })
-		    }
-}
-
-friend.displayHobbies();  
-// Matt enjoys soccer.
-// Matt enjoys hiking.
-// Matt enjoys reading.
-```
-As you can see, the object method `displayHobbies()` is simplified greatly when using arrow functions. Also, in the old ES5 function, `.bind(this)` is required for the inner function of the object's method. This is because `this` in this inner function is equal to the window object, not the object `friend`, as it is for the outer object method itself. The ES6 arrow function fixes this complication: in the inner function, `this` refers to the object itself, so the bind is no longer required.
 
 
