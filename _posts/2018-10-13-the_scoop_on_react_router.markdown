@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "The Scoop on React Router"
-date:       2018-10-13 14:35:18 +0000
+date:       2018-10-13 10:35:19 -0400
 permalink:  the_scoop_on_react_router
 ---
 
